@@ -19,7 +19,7 @@ def connect():
             self.wfile.write(bytes(f"Mark Bayley {today}", "utf-8"))
                
 
-    httpd = HTTPServer(('', 1337), MyHandler)
+    httpd = HTTPServer(('', (int(sys.argv[1]))), MyHandler)
     httpd.socket = ssl.wrap_socket(httpd.socket,
                                server_side=True,
                                certfile='server.crt',
@@ -40,7 +40,7 @@ def connect():
  
 def run_http():
     # function to serve up on HTTP
-    server_address = ('', 8080)
+    server_address = ('', (int(sys.argv[2])))
     httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
     httpd.serve_forever()
 
@@ -48,7 +48,7 @@ def run_http():
 
 def run_https():
     #function to run https server
-    server_address = ('', 4443)
+    server_address = ('', (int(sys.argv[3])))
     httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
     httpd.socket = ssl.wrap_socket(httpd.socket,
                                server_side=True,
