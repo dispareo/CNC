@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 
 import socket
-#create socket
-s = socket.socket
-
-#open up a port
+s = socket.socket()
 port = 1337
-s.bind(('',port))
+s.bind(('', port))
 
 #put socket into listen mode
 s.listen(5)
@@ -15,8 +12,5 @@ s.listen(5)
 while True:
     #accept incoming connections
     c, addr = s.accept()
-
-    #send next set of commands
-    c.send('pwn all the things!')
-
+    c.send(b,'Mark Bayley')
     c.close
