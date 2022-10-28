@@ -27,16 +27,6 @@ def connect():
                                ssl_version=ssl.PROTOCOL_TLS)
     httpd.serve_forever()
 
-    
-   #while(True):
-   #(clientConnection, clientIP) = secureServerSocket.accept();
-    #    temp = random.uniform(50, 65);
-     #   tempStr = "Temperature in the city is %2.2f"%temp;
-      #  encoded = tempStr.encode();
-       # clientConnection.sendall(encoded);
-       # print("Replied to %s with the temperature value %2.2f"%(clientIP, temp));
-
-
  
 def run_http():
     # function to serve up on HTTP
